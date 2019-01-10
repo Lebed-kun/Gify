@@ -1,0 +1,15 @@
+@media only screen and (max-width: 1280px) {
+  .container img {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  .container img {
+    width: 90%;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
