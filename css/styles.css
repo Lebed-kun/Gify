@@ -25,6 +25,10 @@ button:focus {
   outline: none;
 }
 
+h1 {
+  margin: 0;
+}
+
 /* header */
 
 header {
@@ -65,3 +69,43 @@ button[type="button"] {
 }
 
 /* main section */
+
+.main {
+  padding-top: 7.63rem;
+}
+
+.main h1 {
+  text-align: center;
+  color: #88ff00;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.main p {
+  text-align: center;
+
+  padding: 0 1rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  margin: 3rem auto;
+}
+
+.container img {
+  min-width: 320px;
+  min-height: 240px;
+  width: 30%;
+  height: auto;
+
+  margin: 1rem 1rem;
+
+  border: 5px solid white;
+  border-radius: 5px;
+  -o-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
