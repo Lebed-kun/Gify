@@ -1,3 +1,14 @@
+// Constants for rendering
+const MAX_GIF_COUNT = 12;
+const NOT_FOUND_TEXT = 'NO GIFS FOUND';
+
+// Retrieving page elements
+const $header = $('header');
+const $logo = $header.find('span');
+const $input = $('#query');
+const $button = $('#search');
+const $gifContainer = $('.container');
+
 // Rendering one gif image
 const renderGif = gifUrl => {
   if (gifUrl) {
@@ -5,6 +16,7 @@ const renderGif = gifUrl => {
     image.src = gifUrl;
     $gifContainer.append(image);
   } else if (!$gifContainer.html()){
+    $gifContainer.empty();
     const notFoundHeading = document.createElement('h1');
     notFoundHeading.innerHTML = NOT_FOUND_TEXT;
     $gifContainer.append(notFoundHeading);
@@ -12,17 +24,6 @@ const renderGif = gifUrl => {
 };
 
 const render = () => {
-  // Constants for rendering
-  const MAX_GIF_COUNT = 12;
-  const NOT_FOUND_TEXT = 'NO GIFS FOUND';
-
-  // Retrieving page elements
-  const $header = $('header');
-  const $logo = $header.find('span');
-  const $input = $('#query');
-  const $button = $('#search');
-  const $gifContainer = $('.container');
-
   // Rendering whole block of gifs
   const renderContainer = (searchQuery, gifCount) => {
     for (let i = 0; i < gifCount; i++) {
@@ -60,6 +61,7 @@ const render = () => {
     }, 300);
 
     setTimeout(() => {
+      $input.val('');
       $input.hide();
       $logo.show();
     }, 300);
@@ -80,7 +82,14 @@ const render = () => {
     if (event.key == "Enter" &&
       $input.is(':visible')) {
         $gifContainer.empty();
+        const searchQuery = $input.val().split(' ')[0];
         renderContainer(searchQuery, MAX_GIF_COUNT);
       }
   });
+
+  // Loading gifs when page is ready
+  const initializeGifs = () => {
+    renderContainer('random', MAX_GIF_COUNT);
+  };
+  initializeGifs();
 };

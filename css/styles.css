@@ -44,11 +44,14 @@ header {
 
 header span {
   margin-left: 16%;
+}
 
+header span a {
   font-size: 3.17rem;
   font-weight: bold;
   font-style: italic;
   color: #2E3D50;
+  text-decoration: none;
 }
 
 #query {
