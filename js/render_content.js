@@ -67,10 +67,12 @@ const render = () => {
 
   // Redering container when user types a query
   $button.on('click', () => {
-    const searchQuery = $input.val().split(' ')[0];
+    if ($input.is(':visible')) {
+      const searchQuery = $input.val().split(' ')[0];
 
-    $gifContainer.empty();
-    renderContainer(searchQuery, MAX_GIF_COUNT);
+      $gifContainer.empty();
+      renderContainer(searchQuery, MAX_GIF_COUNT);
+    }
   });
 
   // Same as the previous one
