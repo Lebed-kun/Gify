@@ -40,6 +40,10 @@ header {
   height: 4rem;
   padding: 1.5rem 0;
   background-color: white;
+
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 header span {
@@ -72,10 +76,11 @@ button[type="button"] {
 /* main section */
 
 .main {
-  padding-top: 7.63rem;
+  padding-top: 10rem;
+  width: 100%;
 }
 
-.main h1 {
+.main > h1 {
   text-align: center;
   color: #88ff00;
   font-weight: bold;
@@ -91,10 +96,8 @@ button[type="button"] {
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-
-  margin: 3rem auto;
 }
 
 .container img {
@@ -112,10 +115,21 @@ button[type="button"] {
   -webkit-border-radius: 5px;
 }
 
+.container h1 {
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+  color: #888;
+
+  display: inline-block;
+  height: 20rem;
+  padding-top: 2rem;
+}
+
 /* footer */
 
 footer {
-  width: 100%;
   padding-left: 1.2rem;
+  padding-top: 2rem;
   padding-bottom: 1rem;
 }
