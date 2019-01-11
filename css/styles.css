@@ -29,10 +29,6 @@ h1 {
   margin: 0;
 }
 
-.hidden {
-  display: none;
-}
-
 /* header */
 
 header {
@@ -47,7 +43,7 @@ header {
 }
 
 header span {
-  margin-left: 16.54%;
+  margin-left: 16%;
 
   font-size: 3.17rem;
   font-weight: bold;
@@ -55,15 +51,16 @@ header span {
   color: #2E3D50;
 }
 
-input[type="text"] {
+#query {
   font-size: 2.5rem;
   color: #2E3D50;
 
   float: right;
-  width: 85%;
+  width: 0;
+  display: none;
 }
 
-button[type="button"] {
+#search {
   font-size: 2.85rem;
 
   float: right;
@@ -71,6 +68,10 @@ button[type="button"] {
   padding: 0.5rem;
 
   background-color: black;
+}
+
+#search:active {
+  background-color: #660066;
 }
 
 /* main section */
@@ -98,6 +99,8 @@ button[type="button"] {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
+
+  min-height: 20rem;
 }
 
 .container img {
@@ -121,8 +124,6 @@ button[type="button"] {
   font-weight: bold;
   color: #888;
 
-  display: inline-block;
-  height: 20rem;
   padding-top: 2rem;
 }
 

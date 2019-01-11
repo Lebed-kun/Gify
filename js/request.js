@@ -12,7 +12,10 @@ const getGifUrl = searchQuery => {
   }, networkError => {
     console.log(networkError);
   }).then(jsonResponse => {
-    gifSource = jsonResponse.data.image_url;
+    if (!jsonResponse)
+      gifSource = '';
+    else
+      gifSource = jsonResponse.data.image_url;
     renderGif(gifSource);
   });
 };
