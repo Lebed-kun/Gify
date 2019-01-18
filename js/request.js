@@ -14,8 +14,10 @@ const getGifUrl = searchQuery => {
   }).then(jsonResponse => {
     if (!jsonResponse)
       gifSource = '';
-    else
-      gifSource = jsonResponse.data.image_url;
+    else {
+      gifSource = jsonResponse.data.images.preview_gif.url;
+    }
+
     renderGif(gifSource);
   });
 };

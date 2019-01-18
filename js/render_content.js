@@ -15,8 +15,7 @@ const renderGif = gifUrl => {
     const image = document.createElement('img');
     image.src = gifUrl;
     $gifContainer.append(image);
-  } else if (!$gifContainer.html()){
-    $gifContainer.empty();
+  } else if (!$gifContainer.html()) {
     const notFoundHeading = document.createElement('h1');
     notFoundHeading.innerHTML = NOT_FOUND_TEXT;
     $gifContainer.append(notFoundHeading);
