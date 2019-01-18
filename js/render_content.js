@@ -49,7 +49,8 @@ const render = () => {
   $header.on('click', () => {
     $input.show();
 
-    if ($(window).width() > 720) {
+    if ($(window).width() > 720 &&
+    window.innerWidth >= window.innerHeight) {
       $input.animate({
         width: '85%'
       }, 300);
