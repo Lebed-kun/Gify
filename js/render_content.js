@@ -10,11 +10,20 @@ const $button = $('#search');
 const $gifContainer = $('.container');
 
 // Rendering one gif image
-const renderGif = gifUrl => {
+const renderGif = (gifUrl, gifUrlOriginal) => {
   if (gifUrl) {
+    // creating gif preview tile
     const image = document.createElement('img');
     image.src = gifUrl;
-    $gifContainer.append(image);
+
+    // create link to the original gif
+    const linkOriginal = document.createElement('a');
+    linkOriginal.href = gifUrlOriginal;
+
+    // incapsulating gif tile into link
+    linkOriginal.appendChild(image);
+
+    $gifContainer.append(linkOriginal);
   } else if (!$gifContainer.html()) {
     const notFoundHeading = document.createElement('h1');
     notFoundHeading.innerHTML = NOT_FOUND_TEXT;

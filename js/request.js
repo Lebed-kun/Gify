@@ -6,6 +6,7 @@ const giphyApiKey = 'fIv36TmggPN3qpr2ibPrlnlefDfmzP2m';
 const getGifUrl = searchQuery => {
   const fullUrl = `${giphyUrl}${giphyApiKey}&tag=${searchQuery}&rating=R`;
   let gifSource;
+  let girSourceOriginal;
 
   fetch(fullUrl).then(response => {
     return response.json();
@@ -16,8 +17,9 @@ const getGifUrl = searchQuery => {
       gifSource = '';
     else {
       gifSource = jsonResponse.data.images.preview_gif.url;
+      gifSoucreOriginal = jsonResponse.data.image_original_url;
     }
 
-    renderGif(gifSource);
+    renderGif(gifSource, gifSoucreOriginal);
   });
 };
