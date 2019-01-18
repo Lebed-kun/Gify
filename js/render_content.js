@@ -1,5 +1,5 @@
 // Constants for rendering
-const MAX_GIF_COUNT = 12;
+const MAX_GIF_COUNT = 9;
 const NOT_FOUND_TEXT = 'NO GIFS FOUND';
 
 // Retrieving page elements
