@@ -1,11 +1,11 @@
 @media only screen and (max-width: 1280px) {
-  .container img {
+  .container-tile {
     width: 45%;
   }
 }
 
 @media only screen and (max-width: 860px) {
-  .container img {
+  .container-tile {
     width: 90%;
   }
 
@@ -19,7 +19,7 @@
     font-size: 40px;
   }
 
-  .container img {
+  .container-tile {
     width: 90%;
   }
 

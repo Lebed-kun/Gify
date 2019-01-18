@@ -9,21 +9,34 @@ const $input = $('#query');
 const $button = $('#search');
 const $gifContainer = $('.container');
 
+// incapsulating image
+const incapsulateImage = (gifUrl, gifUrlOriginal) => {
+  // creating gif preview tile
+  const image = document.createElement('img');
+  image.src = gifUrl;
+
+  // create link to the original gif
+  const linkOriginal = document.createElement('a');
+  linkOriginal.href = gifUrlOriginal;
+
+  // incapsulating gif tile into link
+  linkOriginal.appendChild(image);
+
+  // create container-tile
+  const tile = document.createElement('div');
+  tile.className = "container-tile";
+
+  // incapsulating linked gif into tile
+  tile.appendChild(linkOriginal);
+
+  return tile;
+}
+
 // Rendering one gif image
 const renderGif = (gifUrl, gifUrlOriginal) => {
   if (gifUrl) {
-    // creating gif preview tile
-    const image = document.createElement('img');
-    image.src = gifUrl;
-
-    // create link to the original gif
-    const linkOriginal = document.createElement('a');
-    linkOriginal.href = gifUrlOriginal;
-
-    // incapsulating gif tile into link
-    linkOriginal.appendChild(image);
-
-    $gifContainer.append(linkOriginal);
+    const imageTile = incapsulateImage(gifUrl, gifUrlOriginal);
+    $gifContainer.append(imageTile);
   } else if (!$gifContainer.html()) {
     const notFoundHeading = document.createElement('h1');
     notFoundHeading.innerHTML = NOT_FOUND_TEXT;

@@ -106,10 +106,9 @@ header span a {
   min-height: 20rem;
 }
 
-.container img {
+.container-tile {
   min-width: 320px;
   width: 30%;
-  height: auto;
 
   margin: 1rem 1rem;
   flex-shrink: 0;
@@ -119,6 +118,11 @@ header span a {
   -o-border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
 }
 
 .container h1 {
