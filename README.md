@@ -9,3 +9,7 @@ Simple website that searches for random gifs
 + styles.css - is default stylesheet;
 + font-faces.css - are settings for custom font(s);
 + media_queries.css - are media queries that manipulate page appearance according to different widths of screen;
+
+---------
+
+TODO : refactoring scripts using RequireJS
