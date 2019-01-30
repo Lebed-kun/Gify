@@ -1,13 +1,19 @@
-// Constants for rendering
-const MAX_GIF_COUNT = 9;
-const NOT_FOUND_TEXT = 'NO GIFS FOUND';
-
 // Retrieving page elements
 const $header = $('header');
 const $logo = $header.find('span').first();
 const $input = $('#query');
 const $button = $('#search');
 const $gifContainer = $('.container');
+
+const $filterContainer = $('.filter-container');
+const $filterButton = $('#filter-button');
+const $maxGifsInput = $('#max-gifs');
+const $ratingSelect = $('#rating');
+
+// Constants for rendering
+let MAX_GIF_COUNT = 9;
+let GIF_RATING = 'pg-13';
+const NOT_FOUND_TEXT = 'NO GIFS FOUND';
 
 // incapsulating image
 const incapsulateImage = (gifUrl, gifUrlOriginal) => {
@@ -46,9 +52,9 @@ const renderGif = (gifUrl, gifUrlOriginal) => {
 
 const render = () => {
   // Rendering whole block of gifs
-  const renderContainer = (searchQuery, gifCount) => {
+  const renderContainer = (searchQuery, gifCount, gifRating) => {
     for (let i = 0; i < gifCount; i++) {
-      getGifUrl(searchQuery);
+      getGifUrl(searchQuery, gifRating);
 
       const heading = $gifContainer.find('h1');
       if (heading && heading.text() == NOT_FOUND_TEXT) {
@@ -95,7 +101,9 @@ const render = () => {
       const searchQuery = $input.val().split(' ')[0];
 
       $gifContainer.empty();
-      renderContainer(searchQuery, MAX_GIF_COUNT);
+      MAX_GIF_COUNT = +$maxGifsInput.val() || 9;
+      GIF_RATING = $ratingSelect.val() || 'pg-13';
+      renderContainer(searchQuery, MAX_GIF_COUNT, GIF_RATING);
     }
   });
 
@@ -105,13 +113,20 @@ const render = () => {
       $input.is(':visible')) {
         $gifContainer.empty();
         const searchQuery = $input.val().split(' ')[0];
-        renderContainer(searchQuery, MAX_GIF_COUNT);
+        MAX_GIF_COUNT = +$maxGifsInput.val() || 9;
+        GIF_RATING = $ratingSelect.val() || 'pg-13';
+        renderContainer(searchQuery, MAX_GIF_COUNT, GIF_RATING);
       }
   });
 
   // Loading gifs when page is ready
   const initializeGifs = () => {
-    renderContainer('random', MAX_GIF_COUNT);
+    renderContainer('random', MAX_GIF_COUNT, GIF_RATING);
   };
   initializeGifs();
+
+  // Show filter section on click
+  $filterButton.on('click', () => {
+    $filterContainer.slideToggle();
+  })
 };
