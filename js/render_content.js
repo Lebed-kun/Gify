@@ -128,5 +128,10 @@ const render = () => {
   // Show filter section on click
   $filterButton.on('click', () => {
     $filterContainer.slideToggle();
-  })
+  });
+
+  // Hide filter section when pointer leaves header
+  $header.on('mouseleave', () => {
+    $filterContainer.slideUp();
+  });
 };
