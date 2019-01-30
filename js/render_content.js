@@ -4,7 +4,7 @@ const NOT_FOUND_TEXT = 'NO GIFS FOUND';
 
 // Retrieving page elements
 const $header = $('header');
-const $logo = $header.find('span');
+const $logo = $header.find('span').first();
 const $input = $('#query');
 const $button = $('#search');
 const $gifContainer = $('.container');

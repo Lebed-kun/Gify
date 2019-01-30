@@ -1,0 +1,35 @@
+/* css reset */
+
+* {
+  color: white;
+  font-family: OpenSans, sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #2E3D50;
+  margin: 0;
+}
+
+button {
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+h1 {
+  margin: 0;
+}
+
+select, option {
+  color: black;
+}
+
+input {
+  color: black;
+}

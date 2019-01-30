@@ -1,0 +1,86 @@
+/* header */
+
+header {
+  width: 100%;
+  padding: 1.5rem 0;
+  background-color: white;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  overflow: hidden;
+}
+
+header span {
+  margin-left: 16%;
+}
+
+header span a {
+  font-size: 3.17rem;
+  font-weight: bold;
+  font-style: italic;
+  color: #2E3D50;
+  text-decoration: none;
+}
+
+.query {
+  font-size: 2.5rem;
+  color: #2E3D50;
+
+  float: right;
+  width: 0;
+  display: none;
+}
+
+.search {
+  font-size: 2.85rem;
+
+  float: right;
+  margin-right: 5%;
+  padding: 0.5rem;
+
+  background-color: black;
+}
+
+.search:active {
+  background-color: #660066;
+}
+
+.filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+
+  background-color: white;
+  width: 100%;
+}
+
+.filter-panel span {
+  color: black;
+  font-size: 1.33rem;
+}
+
+.filter-panel > span {
+  width: 100%;
+  text-align: right;
+  margin-right: 10rem;
+
+  cursor: pointer;
+}
+
+.filter-container {
+  width: 100%;
+  display: none;
+}
+
+.filter-tile span {
+  margin-right: 1.5rem;
+}
+
+.max-gifs {
+  width: 2rem;
+}
+
+.rating {
+  width: 2.5rem;
+}
