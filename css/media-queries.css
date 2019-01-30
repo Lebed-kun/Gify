@@ -12,6 +12,10 @@
   footer {
     text-align: center;
   }
+
+  .filter-panel > span {
+    text-align: center;
+  }
 }
 
 @media only screen and (min-resolution: 150dpi) and (orientation: portrait) {
@@ -24,6 +28,10 @@
   }
 
   footer {
+    text-align: center;
+  }
+
+  .filter-panel > span {
     text-align: center;
   }
 }
