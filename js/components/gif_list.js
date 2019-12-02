@@ -1,6 +1,6 @@
 var GifList = (function Module(Component) {
     function constructor(props, element) {
-        Component.call(this, props, element);
+        Component.call(this, props, element || 'div');
     }
 
     var methods = {
@@ -9,10 +9,10 @@ var GifList = (function Module(Component) {
 
             /* Template start */
             var className = this._props.className || '';
-            var html = '<div class="' + className + '">';
+            var html = '';
 
             for (var i = 0; i < gifCards.length; i++) {
-                html += gifCards[i].render();
+                html += gifCards[i].template();
             }
 
             html += '</div>';

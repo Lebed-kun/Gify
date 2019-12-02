@@ -1,18 +1,28 @@
 var Component = (function Module() {
     function constructor(props, element) {
         this._props = props || {};
+        this._element = document.createElement(element);
 
-        var type = typeof element;
-        this._element = type === 'string' ? document.querySelector(element) : element;
+        this.render();
 
         if (this.mounted) this.mounted();
     }
     
     var methods = {
+        getElement : function() {
+            return this._element;
+        },
+        
+        getProps : function() {
+            return this._props;
+        },
+
         setProps : function(props) {
             var prevProps = this._props;
             this._props = Object.assign({}, prevProps, props);
+
             this.render();
+
             if (this.updated) this.updated(prevProps);
         },
 
@@ -21,16 +31,21 @@ var Component = (function Module() {
         },
 
         render : function() {
-            var html = this.template();
-
             var element = this._element;
-            if (element instanceof Element) {
-                element.innerHTML = html;
-            } else if (element instanceof constructor) {
-                
-            }
+            var children = this._props.children;
+            var html = '';
 
-            return html;
+            if (!children || !children.length) {
+                html = this.template();
+                element.innerHTML = html;
+            } else {
+                for (var i = 0; i < children.length; i++) {
+                    element.innerHTML = '';
+                    for (var i = 0; i < children.length; i++) {
+                        element.appendChild(children[0]);
+                    }
+                }
+            }
         }
     }
 
