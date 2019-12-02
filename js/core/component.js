@@ -5,29 +5,29 @@ var Component = (function Module() {
         var type = typeof element;
         this._element = type === 'string' ? document.querySelector(element) : element;
 
-        this.mounted();
+        if (this.mounted) this.mounted();
     }
     
     var methods = {
-        template : function(content) {
+        setProps : function(props) {
+            var prevProps = this._props;
+            this._props = Object.assign({}, prevProps, props);
+            this.render();
+            if (this.updated) this.updated(prevProps);
+        },
+
+        template : function() {
             return '';
         },
 
         render : function() {
-            var content = '';
-            var children = this._props.children;
-
-            if (children && children.length) {
-                for (var i = 0; i < children.length; i++) {
-                    content += children[i].render();
-                }
-            }
-
-            var html = this.template(content);
+            var html = this.template();
 
             var element = this._element;
-            if (element) {
+            if (element instanceof Element) {
                 element.innerHTML = html;
+            } else if (element instanceof constructor) {
+                
             }
 
             return html;
