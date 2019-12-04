@@ -27,8 +27,8 @@ var Component = (function Module() {
         },
 
         render : function() {
-            var element = this.getElement();
-            var children = this.getProps().children;
+            var element = this._element;
+            var children = this._props.children;
 
             if (element && element.length) {
                 for (var i = 0; i < children.length; i++) {
