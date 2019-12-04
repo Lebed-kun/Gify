@@ -26,24 +26,16 @@ var Component = (function Module() {
             if (this.updated) this.updated(prevProps);
         },
 
-        template : function() {
-            return '';
-        },
-
         render : function() {
-            var element = this._element;
-            var children = this._props.children;
-            var html = '';
+            var element = this.getElement();
+            var children = this.getProps().children;
 
-            if (!children || !children.length) {
-                html = this.template();
-                element.innerHTML = html;
-            } else {
+            if (element && element.length) {
                 for (var i = 0; i < children.length; i++) {
-                    element.innerHTML = '';
-                    for (var i = 0; i < children.length; i++) {
-                        element.appendChild(children[0]);
-                    }
+                    var child = children[i];
+                    child = child instanceof constructor ? child.getElement() : child;
+                    
+                    element.appendChild(child);
                 }
             }
         }
